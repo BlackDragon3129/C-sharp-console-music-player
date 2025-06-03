@@ -1,0 +1,187 @@
+﻿<Window x:Class="ConsoleMusicPlayerSettings.NET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConsoleMusicPlayerSettings.NET"
+        mc:Ignorable="d"
+        xmlns:prop="clr-namespace:ConsoleMusicPlayerSettings.NET.Properties"
+        Title="Settings" Height="300" Width="450">
+    <StackPanel>
+        <!-- Title -->
+        <Grid>
+            <Label 
+			Name="Title"
+			Content="{x:Static prop:Resources.Title}" 
+		
+			HorizontalAlignment="Center" 
+			Margin="0,10,0,0" 
+			VerticalAlignment="Top" 
+		
+			FontSize="48"
+		/>
+        </Grid>
+
+
+        <!-- Language -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+			Name="LanguageLabel"
+			Content="{x:Static prop:Resources.Language}"
+		
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="10,10,0,0"
+		
+			Grid.Column="0"
+		
+			FontSize="18"
+		/>
+            <ComboBox
+			Name="Languages"
+		
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="0,15,0,0"
+			Width="120"
+		
+			Grid.Column="1"
+		
+			FontSize="18"
+		
+			SelectedIndex="0"
+		>
+                <ComboBoxItem>English</ComboBoxItem>
+                <ComboBoxItem>Русский</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+
+        <!-- Volume -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+			Name="VolumeLabel"
+			Content="{x:Static prop:Resources.Volume}"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="10,10,0,0"
+		
+			Grid.Column="0"
+
+			FontSize="18"
+		/>
+            <Slider
+			Name="VolumeSlider"
+
+			Value="100"
+			Minimum="0"
+			Maximum="100"
+		
+			Grid.Column="1"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="0,20,0,0"
+			Width="100"
+
+			IsSnapToTickEnabled="True"
+		/>
+            <Label
+			Name="VolumeValueLabel"
+			Content="{Binding ElementName=VolumeSlider, Path=Value,
+				StringFormat={}{0:0}}"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="110,10,0,0"
+		
+			Grid.Column="2"
+
+			FontSize="18"
+		/>
+        </Grid>
+
+
+        <!-- Greeting -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+			Name="GreetingLabel"
+			Content="{x:Static prop:Resources.Greeting}"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="10,10,0,0"
+		
+			Grid.Column="0"
+
+			FontSize="18"
+		/>
+            <CheckBox
+			Name="GreetingCheckBox"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="0,20,0,0"
+			RenderSize="50,50"
+		
+			Grid.Column="1"
+            
+            IsThreeState="False"
+
+			IsChecked="True"
+		/>
+        </Grid>
+
+
+        <!-- Shuffle -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+			Name="ShuffleByDefaultLabel"
+			Content="{x:Static prop:Resources.Shuffle}"
+		
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="10,10,0,0"
+		
+			Grid.Column="0"
+		
+			FontSize="18"
+		/>
+            <CheckBox
+			Name="ShuffleCheckBox"
+
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="0,20,0,0"
+			RenderSize="50,50"
+		
+			Grid.Column="1"
+            
+            IsThreeState="False"
+
+			IsChecked="True"
+		/>
+        </Grid>
+    </StackPanel>
+</Window>
